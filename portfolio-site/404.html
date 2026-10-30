@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page introuvable | Yohann Campillo</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#15141f">
+    <link rel="icon" type="image/svg+xml" href="/logo-campillo.svg?v=2">
+    <link rel="alternate icon" type="image/png" href="/logo-campillo.png?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --purple: #a855f7; --peach: #ff9a8b; --bg-dark: #15141f; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;
+            background: var(--bg-dark) radial-gradient(ellipse 120% 70% at 50% 0%, color-mix(in srgb, var(--purple) 14%, var(--bg-dark)) 0%, var(--bg-dark) 70%);
+            color: #e2e8f0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; text-align: center;
+        }
+        body::before {
+            content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, color-mix(in srgb, var(--purple) 7%, transparent) 1px, transparent 1px),
+                              linear-gradient(to bottom, color-mix(in srgb, var(--purple) 7%, transparent) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 30%, transparent 75%);
+            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 75%);
+        }
+        main { max-width: 560px; }
+        /* ===== LOGO "YC" =====
+           Construit en calques CSS (formes en masque + fonds CSS) plutôt qu'en dégradé SVG :
+           ainsi ses couleurs suivent les fondus de palette dans tous les navigateurs, sans passage au noir. */
+        .yc-logo { position: relative; display: inline-block; flex-shrink: 0; }
+        .yc-logo > span {
+            position: absolute; inset: 0;
+            -webkit-mask: var(--yc-mask) center / 100% 100% no-repeat;
+                    mask: var(--yc-mask) center / 100% 100% no-repeat;
+        }
+        .yc-bg     { --yc-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 L56 18 V46 L32 60 L8 46 V18 Z' fill='white'/%3E%3C/svg%3E"); background: color-mix(in srgb, var(--purple) 12%, #0c0b12); }
+        .yc-grad   { --yc-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 L56 18 V46 L32 60 L8 46 V18 Z' fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'/%3E%3Cpath d='M44 21 H27 L20 28 V36 L27 43 H44' fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='4'/%3E%3C/svg%3E"); background: linear-gradient(135deg, var(--peach), var(--purple)); }
+        .yc-peach  { --yc-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M30 26.5 L36 32.5 L42 26.5 M36 32.5 V39' fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='3.2'/%3E%3Ccircle cx='44' cy='43' r='2.7' fill='white'/%3E%3C/svg%3E"); background: var(--peach); }
+        .yc-purple { --yc-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 10.5 L50.5 21.2 V42.8 L32 53.5 L13.5 42.8 V21.2 Z' fill='none' stroke='white' stroke-opacity='0.28' stroke-width='1'/%3E%3Ccircle cx='44' cy='21' r='2.7' fill='white'/%3E%3C/svg%3E"); background: var(--purple); }
+
+        .yc-logo { width: 64px; height: 64px; filter: drop-shadow(0 0 14px color-mix(in srgb, var(--purple) 50%, transparent)); }
+        .code {
+            font-size: clamp(88px, 22vw, 150px); font-weight: 800; line-height: 1; letter-spacing: -4px; margin: 20px 0 8px;
+            background: linear-gradient(90deg, var(--peach), var(--purple), var(--peach)); background-size: 200% auto;
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+            animation: shine 4s linear infinite;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
+        .term {
+            font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; font-size: 14px; text-align: left;
+            background: #0a0a0c; border: 1px solid rgba(255,255,255,.08); border-radius: 14px;
+            padding: 18px 20px; margin: 24px 0 32px; color: #cbd5e1; line-height: 1.8;
+        }
+        .term .p { color: var(--purple); } .term .t { color: var(--peach); } .term .err { color: #f87171; }
+        .cursor { animation: blink 1s steps(1) infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+        a.btn {
+            display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: 12px;
+            background: linear-gradient(135deg, var(--peach), var(--purple)); color: #fff; text-decoration: none;
+            font-weight: 800; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; transition: transform .3s, box-shadow .3s;
+        }
+        a.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px -5px color-mix(in srgb, var(--purple) 50%, transparent); }
+        a.btn:focus-visible { outline: 2px solid var(--peach); outline-offset: 3px; }
+        @media (prefers-reduced-motion: reduce) { .code, .cursor { animation: none; } }
+    </style>
+</head>
+<body>
+    <main>
+        <span class="yc-logo" role="img" aria-label="Logo Yohann Campillo"><span class="yc-bg"></span><span class="yc-grad"></span><span class="yc-purple"></span><span class="yc-peach"></span></span>
+        <h1 class="code">404</h1>
+        <p>Cette page n'existe pas, ou elle a été déplacée.</p>
+        <div class="term" aria-hidden="true">
+            <div><span class="p">yohann@portfolio</span>:<span class="t">~</span>$ ping <span id="chemin">page-demandee</span></div>
+            <div class="err">ping: Destination Host Unreachable</div>
+            <div><span class="p">yohann@portfolio</span>:<span class="t">~</span>$ cd /accueil <span class="cursor">_</span></div>
+        </div>
+        <a class="btn" href="/">Retour au portfolio</a>
+    </main>
+    <script>
+        // Affiche le chemin demandé dans le faux terminal
+        const chemin = decodeURIComponent(location.pathname).replace(/^\/+/, '') || 'page-demandee';
+        document.getElementById('chemin').textContent = chemin.length > 40 ? chemin.slice(0, 40) + '…' : chemin;
+    </script>
+</body>
+</html>

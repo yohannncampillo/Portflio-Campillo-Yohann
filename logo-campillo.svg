@@ -1,0 +1,18 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo Yohann Campillo">
+  <defs>
+    <linearGradient id="yc-grad-fixe" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" style="stop-color: #ff9a8b"/>
+      <stop offset="1" style="stop-color: #a855f7"/>
+    </linearGradient>
+  </defs>
+  <!-- Bouclier hexagonal -->
+  <path d="M32 4 L56 18 V46 L32 60 L8 46 V18 Z" style="fill: color-mix(in srgb, #a855f7 12%, #0c0b12)" stroke="url(#yc-grad-fixe)" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M32 10.5 L50.5 21.2 V42.8 L32 53.5 L13.5 42.8 V21.2 Z" fill="none" style="stroke: #a855f7" stroke-opacity="0.28" stroke-width="1"/>
+  <!-- C : piste de circuit -->
+  <path d="M44 21 H27 L20 28 V36 L27 43 H44" fill="none" stroke="url(#yc-grad-fixe)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Y -->
+  <path d="M30 26.5 L36 32.5 L42 26.5 M36 32.5 V39" fill="none" style="stroke: #ff9a8b" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Connecteurs -->
+  <circle cx="44" cy="21" r="2.7" style="fill: #a855f7"/>
+  <circle cx="44" cy="43" r="2.7" style="fill: #ff9a8b"/>
+</svg>
